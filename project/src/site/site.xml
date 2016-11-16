@@ -1,0 +1,44 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
+        name="Projekt Prezentacja Maven">
+
+        <bannerLeft>
+                <src></src>
+        </bannerLeft>
+
+        <publishDate format="dd.MM.yyyy" position="right" />
+        <version position="right" />
+
+        <body>
+
+                <breadcrumbs>
+                        <item name="Grupa junior5"
+                                href="http://docs.dev.intercon.pl/intercon/java-pattern-project" />
+                </breadcrumbs>
+
+                <menu name="Informacje">
+                        <item name="Ogólne" href="index.html" />
+                </menu>
+
+                <menu name="Dokumentacja">
+                    <item name="Topologia" href="topologia.html" /> 
+                    <item name="Konfiguracja" href="konfiguracja.html" /> 
+                    <item name="Aktualizacja" href="aktualizacja.html" />
+                </menu>
+
+                <menu ref="modules" />
+
+                <menu ref="reports" />
+
+        </body>
+
+        <skin>
+                <groupId>org.apache.maven.skins</groupId>
+                <artifactId>maven-fluido-skin</artifactId>
+                <version>1.3.1</version>
+        </skin>
+
+</project> 

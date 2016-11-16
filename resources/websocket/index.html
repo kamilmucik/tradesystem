@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pl">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+table {
+	border: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+}
+table td{
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+}
+table tr:first-child {
+	background-color: #CCCCCC;
+}
+table tr:nth-child(2n) td{
+	background-color: #EEEEEE;
+}
+table tr:nth-child(2n+3) td{
+	background-color: #FFFFFF;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+<link href="css/jquery-ui.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/Chart.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+<script type="text/javascript">
+	var Rate = {};
+	Rate.socket = null;
+	Rate.interval = null;
+	
+	Rate.initialize = function() {
+		Rate.connect();
+	};
+	
+	Rate.connect = (function() {
+		Rate.socket = new SockJS("http://localhost:8090/rating");
+		//Rate.socket = new SockJS("http://localhost:8090/ws/");
+		Rate.socket.onopen = function () {
+			//Console.log('Info: WebSocket connection opened.');
+			Rate.socket.send('ping :' + getUrlParameter('user'));
+			/*setInterval(function() {
+				// Prevent server read timeout.
+				Rate.socket.send('ping :' + getUrlParameter('user'));
+			}, 5000);
+			*/
+		};
+		Rate.socket.onclose = function () {
+			Console.log('Info: WebSocket closed.');
+		};
+		
+		Rate.socket.onmessage = function (message) {
+			var packet = eval('(' + message.data + ')');
+			switch (packet.type) {
+					case 'update':
+						//Console.log('update: aktualizacja danych!' + packet.data);
+						var _prducts = "<table style=\"width:100%;\">"
+						for (var i = 0; i < 1; i++){
+							_prducts += "<tr>"
+						  var obj = packet.data.products[i];
+						  for (var key in obj){
+							_prducts += "<td>" + key + "</td>";
+						  }
+						  _prducts += "</tr>"
+						}
+						for (var i = 0; i < packet.data.products.length; i++){
+							_prducts += "<tr>"
+						  var obj = packet.data.products[i];
+						  for (var key in obj){
+							var value = obj[key];
+							_prducts += "<td>" + value + "</td>";
+						  }
+						  _prducts += "</tr>"
+						}
+						_prducts += "</table>"
+						$( "#quotations" ).html( _prducts );
+						
+						
+						var _orders = "<table style=\"width:100%;\">"
+						for (var i = 0; i < 1; i++){
+							_orders += "<tr>";
+							var obj = packet.data.activeorders[i];
+							for (var key in obj){
+								_orders += "<td>" + key + "</td>";
+							}
+							_orders += "</tr>"
+						}
+						for (var i = 0; i < packet.data.activeorders.length; i++){
+							_orders += "<tr>";
+							var obj = packet.data.activeorders[i];
+							for (var key in obj){
+								var value = obj[key];
+								_orders += "<td>" + value + "</td>";
+							}
+							_orders += "</tr>"
+						}
+						_orders += "</table>"
+						$( "#active-orders" ).html( _orders );
+												
+						break;
+					case 'update-chart':
+						
+						for (var i = 0; i < packet.data.label.length; i++){
+							var obj = packet.data.label[i];
+							myChart.data.labels[i] = obj;
+						}
+						for (var i = 0; i < packet.data.data.length; i++){
+							var obj = packet.data.data[i];
+							myChart.data.datasets[0].data[i] = obj;
+						}	
+						myChart.update();
+					break;
+						
+					case 'update-user':
+						$( "#freeResources" ).html( packet.data.user.freeResources );
+						$( "#walletValue" ).html( packet.data.user.walletValue );
+						$( "#shareholderReturn" ).html( packet.data.user.shareholderReturn );	
+						
+						var _orders = "<table style=\"width:100%;\">"
+						for (var i = 0; i < 1; i++){
+							_orders += "<tr>";
+							var obj = packet.data.assets[i];
+							for (var key in obj){
+								_orders += "<td>" + key + "</td>";
+							}
+							_orders += "</tr>"
+						}
+						for (var i = 0; i < packet.data.assets.length; i++){
+							_orders += "<tr>";
+							var obj = packet.data.assets[i];
+							for (var key in obj){
+								var value = obj[key];
+								_orders += "<td>" + value + "</td>";
+							}
+							_orders += "</tr>"
+						}
+						_orders += "</table>"
+						$( "#ownassets" ).html( _orders );
+						
+						break;
+					case 'join':
+						//Console.log('join: nowy użytkownik połączył się!');
+						break;
+					case 'leave':
+						
+						break;
+				}		
+		};
+	
+	});
+	
+	var Console = {};
+	Console.log = (function(message) {
+		var console = document.getElementById('console');
+		var p = document.createElement('p');
+		p.style.wordWrap = 'break-word';
+		p.innerHTML = message;
+		console.appendChild(p);
+		while (console.childNodes.length > 5) {
+			console.removeChild(console.firstChild);
+		}
+		console.scrollTop = console.scrollHeight;
+	});
+	
+	var getUrlParameter = function getUrlParameter(sParam) {
+		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+		}
+	};
+	
+	
+	Rate.initialize();
+
+</script>
+
+
+<script>
+	$(document).ready(function() {
+		
+	});
+</script>
+<style>
+body {
+	margin: 50px;
+}
+</style>
+</head>
+<body>
+<div class="container">	
+
+	<!-- http://bootstrapdesigntools.com/tools/bootstrap-menu-builder/ -->
+	<nav id="custom-bootstrap-menu" class="navbar navbar-default">
+	<div class="container-fluid">
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand"><i class="fa fa-certificate"></i>Sockety</a>
+	  </div>
+	  <div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="index.html">Tradesystem</a></li>
+		</ul>
+	  </div><!--/.nav-collapse -->
+	</div><!--/.container-fluid -->
+	</nav>
+
+	<div class="row clearfix">
+		<div style="border:0px solid #339999" class="col-md-9 column">
+			<div style="border:0px solid #339999" class="row clearfix ">		
+				<div style="border:0px solid #339999" class="col-md-7 column">					
+					<h4 ><i class="fa fa-arrow-circle-right">Zlecenia aktywne</i></h4>
+					<hr>
+					<div id="active-orders"></div>
+				</div>
+				<div style="" class="col-md-5 column">					
+					<h4 ><i class="fa fa-arrow-circle-right">Notowania</i></h4>
+					<hr>
+					<div id="quotations"></div>
+				</div>
+			</div>
+		</div>
+		<div style="border:0px solid #FF33FF" class="col-md-3 column">
+			<h4 ><i class="fa fa-arrow-circle-right">Dealer:</i></h4>
+			<hr>
+			<div class="row">
+				<div class="col-lg-12">
+					<p style="text-align:left">Wolne środki</p>
+				</div>
+				<div class="col-lg-12">
+					<p id="freeResources" style="text-align: left; font-size: 1.5em; margin-bottom: 20px;"></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p style="text-align:left">Wartość portfela</p>
+				</div>
+				<div class="col-lg-12">
+					<p id="walletValue" style="text-align: left; font-size: 1.5em; margin-bottom: 20px;"></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p style="text-align:left">Stopa zwrotu</p>
+				</div>
+				<div class="col-lg-12">
+					<p id="shareholderReturn" style="text-align: left; font-size: 1.5em; margin-bottom: 20px;"></p>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div style="border:0px solid #339999" class="col-md-9 column">
+			<div style="border:0px solid #339999" class="row clearfix ">		
+				<div style="" class="col-md-5 column">					
+					<h4 ><i class="fa fa-arrow-circle-right">Wartość portfele</i></h4>
+					<hr>
+					<div id="chart">
+					
+					<canvas id="myChart" width="400" height="200"></canvas>
+
+
+					
+					</div>
+				</div>
+				<div style="" class="col-md-7 column">					
+					<h4 ><i class="fa fa-arrow-circle-right">Posiadane aktywa</i></h4>
+					<hr>
+					<div id="ownassets"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+	</div>
+	
+	
+	<div class="row clearfix">
+		<div style="border:0px solid #339999" class="col-md-12 column">
+			<div id="console-container">
+				<div id="console"></div>
+			</div>
+		</div>	
+	</div>
+	
+	<hr>
+	
+
+	<!-- Footer -->
+	<footer>
+		<div class="row">
+			<div class="col-lg-12">
+				<p style="text-align:right">Copyright &copy; Kamil Mucik</p>
+			</div>
+		</div>
+	</footer>
+</div>
+	<script>		
+		
+
+	</script>
+</body>
+</html>
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+		labels : ["January","February","March","April","May","June"],
+		datasets : [
+			{
+				fillColor : "rgba(172,194,132,0.4)",
+				strokeColor : "#ACC26D",
+				pointColor : "#fff",
+				pointStrokeColor : "#9DB86D",
+				data : [203,156,99,251,305,247]
+			}
+		]
+    },
+    options: {
+    }
+});
+
+
+
+</script>

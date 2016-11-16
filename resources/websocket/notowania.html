@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Apache Tomcat WebSocket Examples: notowania</title>
+
+	<script src="https://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+</head>
+<body>
+	<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websockets rely on Javascript being enabled. Please enable
+		Javascript and reload this page!</h2></noscript>
+
+	<div style="float: left">
+		<canvas id="playground" width="640" height="480"></canvas>
+	</div>
+	<div id="console-container">
+		<div id="console"></div>
+	</div>
+	<script type="text/javascript">
+	var Rate = {};
+	Rate.socket = null;
+	Rate.interval = null;
+	
+	Rate.initialize = function() {
+		Rate.connect();
+	};
+	
+	Rate.connect = (function() {
+		Rate.socket = new SockJS("http://localhost:8090/websocket");
+		Rate.socket.onopen = function () {
+			// Socket open.. start the game loop.
+			Console.log('Info: WebSocket connection opened.');
+			Console.log('Info: Press an arrow key to begin.');
+			//Game.startGameLoop();
+			setInterval(function() {
+				// Prevent server read timeout.
+				Rate.socket.send('ping');
+			}, 5000);
+		};
+		Rate.socket.onclose = function () {
+			Console.log('Info: WebSocket closed.');
+			//Game.stopGameLoop();
+		};
+		Rate.socket.onmessage = function (message) {
+			// _Potential_ security hole, consider using json lib to parse data in production.
+			var packet = eval('(' + message.data + ')');
+			switch (packet.type) {
+				case 'update':
+				
+				
+				
+				
+					for (var i = 0; i < packet.data.length; i++) {
+						Rate.updateSnake(packet.data[i].id, packet.data[i].body);
+					}
+					break;
+				case 'join':
+					for (var j = 0; j < packet.data.length; j++) {
+						Rate.addSnake(packet.data[j].id, packet.data[j].color);
+					}
+					break;
+				case 'leave':
+					Rate.removeSnake(packet.id);
+					break;
+				case 'dead':
+					Console.log('Info: Your snake is dead, bad luck!');
+					//Game.direction = 'none';
+					break;
+				case 'kill':
+					Console.log('Info: Head shot!');
+					break;
+			}
+		};
+	});
+	
+	var Console = {};
+		Console.log = (function(message) {
+			var console = document.getElementById('console');
+			var p = document.createElement('p');
+			p.style.wordWrap = 'break-word';
+			p.innerHTML = message;
+			console.appendChild(p);
+			while (console.childNodes.length > 25) {
+				console.removeChild(console.firstChild);
+			}
+			console.scrollTop = console.scrollHeight;
+		});
+	Rate.initialize();
+	</script>
+</body>
+</html>
