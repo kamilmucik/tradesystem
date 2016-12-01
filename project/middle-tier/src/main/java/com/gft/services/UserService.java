@@ -1,7 +1,8 @@
 package com.gft.services;
 
-import com.gft.dto.Product;
-import com.gft.dto.User;
+import com.gft.dto.model.Asset;
+import com.gft.dto.model.User;
+import com.gft.dto.model.UserDetails;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -13,11 +14,9 @@ import java.util.concurrent.CompletableFuture;
  */
 public interface UserService {
 
-    public CompletableFuture<User> getUser(Long userId);
+    CompletableFuture<Page<Asset>> findAssets(String login, Long page, Long size, List<String> sort, String direction);
 
-    public CompletableFuture<Page<User>> findAll(Long page, Long size, List<String> sort, String direction);
+    CompletableFuture<User> loginUser(String login, String password);
 
-    public CompletableFuture<User> updateUser(User user);
-
-    public CompletableFuture<User> deleteUser(Long userId);
+    CompletableFuture<UserDetails> getUser(String login);
 }

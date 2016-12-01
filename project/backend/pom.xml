@@ -28,6 +28,40 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>${unit-tests.skip}</skipTests>
+                    <includes>
+                        <include>**/*UnitTest.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*IntegrationTest.class</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>${integration-tests.skip}</skipTests>
+                            <includes>
+                                <include>**/*IntegrationTest.class</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*UnitTest.class</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
                 <version>1.4</version>
@@ -171,15 +205,16 @@
                     <resource>
                         <directory>src/main/resources</directory>
                     </resource>
-                    <resource>
-                        <directory>src/profiles/local/resources</directory>
-                    </resource>
+
                     <resource>
                         <directory>src/main/resources</directory>
                         <includes>
                             <include>filter.properties</include>
                         </includes>
                         <filtering>true</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/profiles/local/resources</directory>
                     </resource>
                 </resources>
             </build>
@@ -212,6 +247,20 @@
                     </resource>
                 </resources>
             </build>
+        </profile>
+        <profile>
+            <id>integration</id>
+            <properties>
+                <unit-tests.skip>true</unit-tests.skip>
+                <integration-tests.skip>false</integration-tests.skip>
+            </properties>
+        </profile>
+        <profile>
+            <id>unit</id>
+            <properties>
+                <unit-tests.skip>false</unit-tests.skip>
+                <integration-tests.skip>true</integration-tests.skip>
+            </properties>
         </profile>
     </profiles>
 
@@ -267,7 +316,6 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
         </dependency>
 
         <dependency>
@@ -276,6 +324,21 @@
             <classifier>bin</classifier>
             <type>exe</type>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j</artifactId>
         </dependency>
     </dependencies>
 

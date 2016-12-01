@@ -2,7 +2,6 @@ package com.gft;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 
 /**
  * Created by kamu on 8/9/2016.

@@ -13,12 +13,12 @@
 	<startargument>-Dcom.sun.management.jmxremote.ssl=false </startargument>
 	<startargument>-cp</startargument>
 	<startargument>lib/*</startargument>
-	<startargument>com.gft.boot.daemon.StartSpringBootService</startargument>
+	<startargument>pl.estrix.boot.daemon.StartSpringBootService</startargument>
 	<startargument>@dist.start.class@</startargument>
 
 	<stopexecutable>java</stopexecutable>
 	<stopargument>-cp</stopargument>
 	<stopargument>lib/*</stopargument>
-	<stopargument>com.gft.boot.daemon.StopSpringBootService</stopargument>
+	<stopargument>pl.estrix.boot.daemon.StopSpringBootService</stopargument>
 	<stopargument>@dist.jmx.port@</stopargument>
 </service>

@@ -10,20 +10,22 @@ import java.io.Serializable;
 @Table(name="TBL_AUTHORITY")
 public class Authority implements Serializable {
 
-
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "NAME", unique = true, nullable = false)
     private String name;
 
-    public Integer getId() {
+    @Column(name = "ROLE", unique = true, nullable = false)
+    private String role;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -34,4 +36,8 @@ public class Authority implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getRole() {return role;}
+
+    public void setRole(String role) {this.role = role;}
 }

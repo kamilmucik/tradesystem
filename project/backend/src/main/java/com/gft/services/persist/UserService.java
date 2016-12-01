@@ -1,19 +1,17 @@
 package com.gft.services.persist;
 
-import com.gft.dto.User;
-
-import java.util.List;
+import com.gft.dto.*;
+import com.gft.dto.model.UserDetails;
 
 /**
  * Created by kamu on 8/16/2016.
  */
 public interface UserService {
 
-    public List<User> findAll();
+    LoginUserResponse login(LoginUserRequest request);
 
-    public User findOne(Long id);
+    GetUserDetailsResponse getUserDetails(GetUserDetailsRequest request);
 
-    public User update(User u);
-
+    UserDetails getUserDetails(String email);
 
 }

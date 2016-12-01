@@ -1,6 +1,6 @@
 package com.gft;
 
-import com.gft.dto.CustomCustomer;
+import com.gft.dto.model.CustomCustomer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;

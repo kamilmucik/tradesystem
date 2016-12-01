@@ -1,0 +1,416 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building backend 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for com.gft:daemon-integration:jar:1.0-SNAPSHOT is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] The POM for com.gft:messages:jar:1.0-SNAPSHOT is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ backend ---
+[INFO] Executing: cmd.exe /X /C "git rev-parse --verify HEAD"
+[INFO] Working directory: C:\gft\java\workspaces\20160829\TemplateJava\backend
+[INFO] Storing buildNumber: 26262624ef0c777b9e8081ff6c89f907fc38c3c2 at timestamp: 1476371913150
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.4:addTestSources (default) @ backend ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (default) @ backend ---
+[WARNING] Parameter tasks is deprecated, use target instead
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ backend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\gft\java\workspaces\20160829\TemplateJava\backend\src\main\resources
+[INFO] skip non existing resourceDirectory C:\gft\java\workspaces\20160829\TemplateJava\backend\src\main\resources
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:copy-resources (copy-resources) @ backend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ backend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\gft\java\workspaces\20160829\TemplateJava\backend\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.4:testCompile (default) @ backend ---
+[INFO] No sources specified for compilation.  Skipping.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ backend ---
+[INFO] Surefire report directory: C:\gft\java\workspaces\20160829\TemplateJava\backend\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.gft.unit.BigDecimalUnitTest
+17:18:39.105 [main] DEBUG com.gft.unit.BigDecimalUnitTest - Second value is greater
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec - in com.gft.unit.BigDecimalUnitTest
+Running com.gft.unit.CalculateRateUnitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in com.gft.unit.CalculateRateUnitTest
+Running com.gft.unit.TransactionUnitTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in com.gft.unit.TransactionUnitTest
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.5:jar (default-jar) @ backend ---
+[INFO] Building jar: C:\gft\java\workspaces\20160829\TemplateJava\backend\target\backend-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.3.5.RELEASE:repackage (default) @ backend ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:copy (copy) @ backend ---
+[INFO] Configured Artifact: com.sun.winsw:winsw:bin:?:exe
+[INFO] com.sun.winsw:winsw:bin:1.18:exe already exists in C:\gft\java\workspaces\20160829\TemplateJava\backend\target\dist
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.5:single (assembly) @ backend ---
+[INFO] Reading assembly descriptor: src/main/assembly/unix.xml
+[INFO] Reading assembly descriptor: src/main/assembly/windows.xml
+[WARNING] Failed to build parent project for com.gft:daemon-integration:jar:1.0-SNAPSHOT
+[WARNING] Invalid POM for com.gft:daemon-integration:jar:1.0-SNAPSHOT, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] Failed to build parent project for com.gft:messages:jar:1.0-SNAPSHOT
+[WARNING] Invalid POM for com.gft:messages:jar:1.0-SNAPSHOT, transitive dependencies (if any) will not be available, enable debug logging for more details
+[WARNING] Failed to build parent project for com.gft:daemon-integration:jar:1.0-SNAPSHOT
+[WARNING] Failed to build parent project for com.gft:messages:jar:1.0-SNAPSHOT
+[INFO] Building zip: C:\gft\java\workspaces\20160829\TemplateJava\backend\target\backend-1.0-SNAPSHOT-unix.zip
+[WARNING] Failed to build parent project for com.gft:daemon-integration:jar:1.0-SNAPSHOT
+[WARNING] Failed to build parent project for com.gft:messages:jar:1.0-SNAPSHOT
+[INFO] Building zip: C:\gft\java\workspaces\20160829\TemplateJava\backend\target\backend-1.0-SNAPSHOT-windows.zip
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.18:integration-test (integration-test) @ backend ---
+[INFO] Failsafe report directory: C:\gft\java\workspaces\20160829\TemplateJava\backend\target\failsafe-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+17:18:55.394 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.db.ProductIntegrationTest]
+17:18:55.407 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.417 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.454 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.db.ProductIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+17:18:55.508 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@1bce4f0a declaringClass = 'com.gft.db.ProductIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.533 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.ProductIntegrationTest]: class path resource [com/gft/db/ProductIntegrationTest-context.xml] does not exist
+17:18:55.533 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.ProductIntegrationTest]: class path resource [com/gft/db/ProductIntegrationTestContext.groovy] does not exist
+17:18:55.534 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.db.ProductIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.536 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.db.ProductIntegrationTest]
+17:18:55.543 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.db.ProductIntegrationTest]: using defaults.
+17:18:55.555 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.606 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@79be0360, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@22a67b4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@57855c9a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3b084709, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3224f60b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@63e2203c]
+17:18:55.618 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.db.UserAssetsIntegrationTest]
+17:18:55.619 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.619 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.622 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.db.UserAssetsIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+17:18:55.639 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@7d0587f1 declaringClass = 'com.gft.db.UserAssetsIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.641 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.UserAssetsIntegrationTest]: class path resource [com/gft/db/UserAssetsIntegrationTest-context.xml] does not exist
+17:18:55.642 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.UserAssetsIntegrationTest]: class path resource [com/gft/db/UserAssetsIntegrationTestContext.groovy] does not exist
+17:18:55.643 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.db.UserAssetsIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.644 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.db.UserAssetsIntegrationTest]
+17:18:55.645 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.db.UserAssetsIntegrationTest]: using defaults.
+17:18:55.654 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.655 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@51cdd8a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@d44fc21, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@23faf8f2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2d6eabae, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4e7dc304, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@64729b1e]
+17:18:55.667 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.db.UsersIntegrationTest]
+17:18:55.667 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.667 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.668 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.db.UsersIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+17:18:55.674 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@5f282abb declaringClass = 'com.gft.db.UsersIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.675 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.UsersIntegrationTest]: class path resource [com/gft/db/UsersIntegrationTest-context.xml] does not exist
+17:18:55.676 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.UsersIntegrationTest]: class path resource [com/gft/db/UsersIntegrationTestContext.groovy] does not exist
+17:18:55.676 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.db.UsersIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.677 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.db.UsersIntegrationTest]
+17:18:55.677 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.db.UsersIntegrationTest]: using defaults.
+17:18:55.684 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.685 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@27a8c74e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2d8f65a4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1b68ddbd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@646d64ab, org.springframework.test.context.transaction.TransactionalTestExecutionListener@59e5ddf, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@536aaa8d]
+17:18:55.690 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.jms.RepositoryUserServiceIntegrationTest]
+17:18:55.691 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.692 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.702 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.jms.RepositoryUserServiceIntegrationTest] from class [org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper]
+17:18:55.709 [main] DEBUG org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@ea1a8d5 declaringClass = 'com.gft.jms.RepositoryUserServiceIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.710 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.jms.RepositoryUserServiceIntegrationTest]: class path resource [com/gft/jms/RepositoryUserServiceIntegrationTest-context.xml] does not exist
+17:18:55.711 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.jms.RepositoryUserServiceIntegrationTest]: class path resource [com/gft/jms/RepositoryUserServiceIntegrationTestContext.groovy] does not exist
+17:18:55.711 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.jms.RepositoryUserServiceIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.711 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.jms.RepositoryUserServiceIntegrationTest]
+17:18:55.714 [main] DEBUG org.springframework.test.util.ReflectionTestUtils - Setting field 'propertySourceProperties' of type [null] on target object [[WebMergedContextConfiguration@17d677df testClass = RepositoryUserServiceIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = '', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]] or target class [class org.springframework.test.context.web.WebMergedContextConfiguration] to value [[Ljava.lang.String;@3043fe0e]
+17:18:55.716 [main] DEBUG org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.jms.RepositoryUserServiceIntegrationTest]: using defaults.
+17:18:55.723 [main] INFO org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.724 [main] INFO org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7e2d773b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2173f6d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@307f6b8c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7a187f14, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6f195bc3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@51e2adc7]
+17:18:55.731 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.jms.UserIntegrationTest]
+17:18:55.731 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.732 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.733 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.jms.UserIntegrationTest] from class [org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper]
+17:18:55.734 [main] DEBUG org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@27808f31 declaringClass = 'com.gft.jms.UserIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.735 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.jms.UserIntegrationTest]: class path resource [com/gft/jms/UserIntegrationTest-context.xml] does not exist
+17:18:55.736 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.jms.UserIntegrationTest]: class path resource [com/gft/jms/UserIntegrationTestContext.groovy] does not exist
+17:18:55.736 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.jms.UserIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.738 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.jms.UserIntegrationTest]
+17:18:55.739 [main] DEBUG org.springframework.test.util.ReflectionTestUtils - Setting field 'propertySourceProperties' of type [null] on target object [[WebMergedContextConfiguration@436e852b testClass = UserIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', resourceBasePath = '', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]] or target class [class org.springframework.test.context.web.WebMergedContextConfiguration] to value [[Ljava.lang.String;@32d2fa64]
+17:18:55.739 [main] DEBUG org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.jms.UserIntegrationTest]: using defaults.
+17:18:55.744 [main] INFO org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.744 [main] INFO org.springframework.boot.test.WebAppIntegrationTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ce6a65d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1500955a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@e874448, org.springframework.test.context.support.DirtiesContextTestExecutionListener@29b5cd00, org.springframework.test.context.transaction.TransactionalTestExecutionListener@60285225, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7113b13f]
+17:18:55.750 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.ProductIntegrationTest]
+17:18:55.752 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.ProductIntegrationTest]
+17:18:55.754 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.UserAssetsIntegrationTest]
+17:18:55.754 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.UserAssetsIntegrationTest]
+17:18:55.754 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.UsersIntegrationTest]
+17:18:55.754 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.UsersIntegrationTest]
+17:18:55.755 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.jms.RepositoryUserServiceIntegrationTest]
+17:18:55.755 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.jms.RepositoryUserServiceIntegrationTest]
+17:18:55.755 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.jms.UserIntegrationTest]
+17:18:55.756 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.jms.UserIntegrationTest]
+Running com.gft.db.ProductIntegrationTest
+17:18:55.759 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.gft.db.ProductIntegrationTest]
+17:18:55.759 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:18:55.760 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:18:55.761 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.gft.db.ProductIntegrationTest] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+17:18:55.762 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@262b2c86 declaringClass = 'com.gft.db.ProductIntegrationTest', classes = '{class com.gft.ConfigApp}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+17:18:55.763 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.ProductIntegrationTest]: class path resource [com/gft/db/ProductIntegrationTest-context.xml] does not exist
+17:18:55.764 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.gft.db.ProductIntegrationTest]: class path resource [com/gft/db/ProductIntegrationTestContext.groovy] does not exist
+17:18:55.764 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.gft.db.ProductIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:18:55.765 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.gft.db.ProductIntegrationTest]
+17:18:55.766 [main] DEBUG org.springframework.test.context.support.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [com.gft.db.ProductIntegrationTest]: using defaults.
+17:18:55.769 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+17:18:55.770 [main] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@87f383f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4eb7f003, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@eafc191, org.springframework.test.context.support.DirtiesContextTestExecutionListener@612fc6eb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1060b431, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@612679d6]
+17:18:55.773 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.ProductIntegrationTest]
+17:18:55.774 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.ProductIntegrationTest]
+17:18:55.775 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.ProductIntegrationTest]
+17:18:55.775 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.ProductIntegrationTest]
+17:18:55.778 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@757942a1 testClass = ProductIntegrationTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@4a87761d testClass = ProductIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+17:18:55.779 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.gft.db.ProductIntegrationTest]
+17:18:55.780 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.gft.db.ProductIntegrationTest]
+17:18:55.783 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@757942a1 testClass = ProductIntegrationTest, testInstance = com.gft.db.ProductIntegrationTest@569cfc36, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@4a87761d testClass = ProductIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]].
+17:18:55.907 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+17:18:55.909 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+17:18:55.909 [main] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+17:18:55.911 [main] DEBUG org.springframework.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+2016-10-13 17:18:56.539  INFO 17684 --- [           main] com.gft.db.ProductIntegrationTest        : Starting ProductIntegrationTest on PLLL0262 with PID 17684 (C:\gft\java\workspaces\20160829\TemplateJava\backend\target\test-classes started by kamu in C:\gft\java\workspaces\20160829\TemplateJava\backend)
+2016-10-13 17:18:56.540 DEBUG 17684 --- [           main] com.gft.db.ProductIntegrationTest        : Running with Spring Boot v1.3.5.RELEASE, Spring v4.2.6.RELEASE
+2016-10-13 17:18:56.540  INFO 17684 --- [           main] com.gft.db.ProductIntegrationTest        : No active profile set, falling back to default profiles: default
+2016-10-13 17:18:56.609  INFO 17684 --- [           main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@408d971b: startup date [Thu Oct 13 17:18:56 CEST 2016]; root of context hierarchy
+2016-10-13 17:18:59.813  INFO 17684 --- [           main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/kamu/.m2/repository/org/springframework/integration/spring-integration-core/4.2.5.RELEASE/spring-integration-core-4.2.5.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2016-10-13 17:18:59.826  INFO 17684 --- [           main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2016-10-13 17:19:00.256  INFO 17684 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2016-10-13 17:19:00.269  INFO 17684 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2016-10-13 17:19:00.635  INFO 17684 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1bd3893c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-13 17:19:02.099  INFO 17684 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-10-13 17:19:02.149  INFO 17684 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-10-13 17:19:02.347  INFO 17684 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate Core {4.3.6.Final}
+2016-10-13 17:19:02.358  INFO 17684 --- [           main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-10-13 17:19:02.368  INFO 17684 --- [           main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-10-13 17:19:02.875  INFO 17684 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-10-13 17:19:02.979  WARN 17684 --- [           main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2016-10-13 17:19:04.333  INFO 17684 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2016-10-13 17:19:04.597  WARN 17684 --- [           main] org.hibernate.cfg.AnnotationBinder       : HHH000137: Root entity should not hold an PrimaryKeyJoinColum(s), will be ignored
+2016-10-13 17:19:04.598  WARN 17684 --- [           main] org.hibernate.cfg.AnnotationBinder       : HHH000139: Illegal use of @Table in a subclass of a SINGLE_TABLE hierarchy: com.gft.model.UserSeparatedAsset
+2016-10-13 17:19:04.822  INFO 17684 --- [           main] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+2016-10-13 17:19:05.846  INFO 17684 --- [           main] o.h.tool.hbm2ddl.SchemaValidator         : HHH000229: Running schema validator
+2016-10-13 17:19:05.847  INFO 17684 --- [           main] o.h.tool.hbm2ddl.SchemaValidator         : HHH000102: Fetching database metadata
+2016-10-13 17:19:05.978  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_AUTHORITY
+2016-10-13 17:19:05.978  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [role, name, id]
+2016-10-13 17:19:05.982  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_PRODUCT
+2016-10-13 17:19:05.982  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [env_name, name, id]
+2016-10-13 17:19:05.986  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_PRODUCT_RATE
+2016-10-13 17:19:05.987  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [rate, created, product_id, id]
+2016-10-13 17:19:05.994  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER
+2016-10-13 17:19:05.994  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [amount, password, created, last_login, last_name, id, first_name, email]
+2016-10-13 17:19:05.999  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER_ASSET
+2016-10-13 17:19:05.999  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [volume, is_done, created, price, product_id, dtype, contractor_2_user_id, contractor_1_user_id, user_asset_id, id, transaction_type, separated_date]
+2016-10-13 17:19:06.005  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER_AUTHORITY
+2016-10-13 17:19:06.005  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [user_id, authority_id]
+products: gold,silver
+2016-10-13 17:19:08.222  INFO 17684 --- [           main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/kamu/.m2/repository/org/springframework/integration/spring-integration-core/4.2.5.RELEASE/spring-integration-core-4.2.5.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2016-10-13 17:19:08.289  INFO 17684 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2016-10-13 17:19:08.739  INFO 17684 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-10-13 17:19:08.744  INFO 17684 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-10-13 17:19:08.745  INFO 17684 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:-1.errorChannel' has 1 subscriber(s).
+2016-10-13 17:19:08.745  INFO 17684 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2016-10-13 17:19:08.745  INFO 17684 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-10-13 17:19:09.142  INFO 17684 --- [           main] com.gft.db.ProductIntegrationTest        : Started ProductIntegrationTest in 13.225 seconds (JVM running for 14.552)
+2016-10-13 17:19:09.331  INFO 17684 --- [ask-scheduler-1] com.gft.services.MatcherScheduledTasks   : The time is now 17:19:09
+2016-10-13 17:19:10.089 DEBUG 17684 --- [           main] c.g.services.persist.ProductServiceImpl  : o[1]: 3
+Tests run: 3, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 14.336 sec <<< FAILURE! - in com.gft.db.ProductIntegrationTest
+findByEnvNameInDaoTest(com.gft.db.ProductIntegrationTest)  Time elapsed: 0.489 sec  <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<1200>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotNull(Assert.java:664)
+	at org.junit.Assert.assertNull(Assert.java:646)
+	at org.junit.Assert.assertNull(Assert.java:656)
+	at com.gft.db.ProductIntegrationTest.lambda$findByEnvNameInDaoTest$1(ProductIntegrationTest.java:64)
+
+findAllProductServiceTest(com.gft.db.ProductIntegrationTest)  Time elapsed: 0.405 sec  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at org.hibernate.collection.internal.PersistentBag.get(PersistentBag.java:467)
+	at com.gft.services.persist.ProductServiceImpl.lambda$getAll$1(ProductServiceImpl.java:112)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at com.gft.services.persist.ProductServiceImpl.getAll(ProductServiceImpl.java:108)
+	at com.gft.db.ProductIntegrationTest.findAllProductServiceTest(ProductIntegrationTest.java:77)
+
+Running com.gft.db.UserAssetsIntegrationTest
+2016-10-13 17:19:10.098  INFO 17684 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.gft.db.UserAssetsIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-10-13 17:19:10.104  INFO 17684 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-10-13 17:19:10.107  INFO 17684 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@64c25a62, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@43e8f1c, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@66a82a13, org.springframework.test.context.support.DirtiesContextTestExecutionListener@675ec28b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@11399548, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@610fbe1c]
+2016-10-13 17:19:10.225  INFO 17684 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4f26425b testClass = UserAssetsIntegrationTest, testInstance = com.gft.db.UserAssetsIntegrationTest@f03ee8f, testMethod = updateBatch@UserAssetsIntegrationTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0f89c testClass = UserAssetsIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@40dd552c]; rollback [false]
+2016-10-13 17:19:10.287  INFO 17684 --- [           main] o.s.t.c.transaction.TransactionContext   : Committed transaction for test context [DefaultTestContext@4f26425b testClass = UserAssetsIntegrationTest, testInstance = com.gft.db.UserAssetsIntegrationTest@f03ee8f, testMethod = updateBatch@UserAssetsIntegrationTest, testException = java.lang.IndexOutOfBoundsException: Index: 0, Size: 0, mergedContextConfiguration = [MergedContextConfiguration@46d0f89c testClass = UserAssetsIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]].
+2016-10-13 17:19:10.290  INFO 17684 --- [           main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4f26425b testClass = UserAssetsIntegrationTest, testInstance = com.gft.db.UserAssetsIntegrationTest@5b14f482, testMethod = findAssetToMatch@UserAssetsIntegrationTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0f89c testClass = UserAssetsIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@40dd552c]; rollback [false]
+2016-10-13 17:19:10.341  INFO 17684 --- [           main] o.s.t.c.transaction.TransactionContext   : Committed transaction for test context [DefaultTestContext@4f26425b testClass = UserAssetsIntegrationTest, testInstance = com.gft.db.UserAssetsIntegrationTest@5b14f482, testMethod = findAssetToMatch@UserAssetsIntegrationTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0f89c testClass = UserAssetsIntegrationTest, locations = '{}', classes = '{class com.gft.ConfigApp}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]].
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in com.gft.db.UserAssetsIntegrationTest
+updateBatch(com.gft.db.UserAssetsIntegrationTest)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at com.gft.db.UserAssetsIntegrationTest.updateBatch(UserAssetsIntegrationTest.java:53)
+
+Running com.gft.db.UsersIntegrationTest
+2016-10-13 17:19:10.346  INFO 17684 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.gft.db.UsersIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-10-13 17:19:10.350  INFO 17684 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-10-13 17:19:10.350  INFO 17684 --- [           main] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3e151e1f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@d70e9a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5e98032e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4fe8f2ae, org.springframework.test.context.transaction.TransactionalTestExecutionListener@591be8aa, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@61808ecd]
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in com.gft.db.UsersIntegrationTest
+loginTest(com.gft.db.UsersIntegrationTest)  Time elapsed: 0 sec  <<< ERROR!
+org.mockito.exceptions.misusing.WrongTypeOfReturnValue: 
+Integer cannot be returned by getPassword()
+getPassword() should return String
+***
+If you're unsure why you're getting above error read on.
+Due to the nature of the syntax above problem might occur because:
+1. This exception *might* occur in wrongly written multi-threaded tests.
+   Please refer to Mockito FAQ on limitations of concurrency testing.
+2. A spy is stubbed using when(spy.foo()).then() syntax. It is safer to stub spies - 
+   - with doReturn|Throw() family of methods. More in javadocs for Mockito.spy() method.
+
+	at com.gft.db.UsersIntegrationTest.loginTest(UsersIntegrationTest.java:67)
+
+Running com.gft.jms.RepositoryUserServiceIntegrationTest
+2016-10-13 17:19:10.865  INFO 17684 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.gft.jms.RepositoryUserServiceIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-10-13 17:19:10.875  INFO 17684 --- [           main] WebAppIntegrationTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-10-13 17:19:10.877  INFO 17684 --- [           main] WebAppIntegrationTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11148dc2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3be80ece, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@60a01cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4efb13f1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7bb4ed71, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5112b7]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+2016-10-13 17:19:11.001  INFO 17684 --- [           main] g.j.RepositoryUserServiceIntegrationTest : Starting RepositoryUserServiceIntegrationTest on PLLL0262 with PID 17684 (C:\gft\java\workspaces\20160829\TemplateJava\backend\target\test-classes started by kamu in C:\gft\java\workspaces\20160829\TemplateJava\backend)
+2016-10-13 17:19:11.001 DEBUG 17684 --- [           main] g.j.RepositoryUserServiceIntegrationTest : Running with Spring Boot v1.3.5.RELEASE, Spring v4.2.6.RELEASE
+2016-10-13 17:19:11.002  INFO 17684 --- [           main] g.j.RepositoryUserServiceIntegrationTest : No active profile set, falling back to default profiles: default
+2016-10-13 17:19:11.081  INFO 17684 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16e195cf: startup date [Thu Oct 13 17:19:11 CEST 2016]; root of context hierarchy
+2016-10-13 17:19:13.662  INFO 17684 --- [           main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2016-10-13 17:19:13.771  INFO 17684 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2016-10-13 17:19:13.771  INFO 17684 --- [           main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2016-10-13 17:19:13.915  INFO 17684 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1bd3893c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-13 17:19:14.445  INFO 17684 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8091 (http)
+2016-10-13 17:19:14.468  INFO 17684 --- [           main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-13 17:19:14.473  INFO 17684 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.33
+2016-10-13 17:19:14.784  INFO 17684 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-13 17:19:14.784  INFO 17684 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3703 ms
+2016-10-13 17:19:15.468  INFO 17684 --- [ost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-13 17:19:15.479  INFO 17684 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-13 17:19:15.479  INFO 17684 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-13 17:19:15.480  INFO 17684 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-13 17:19:15.480  INFO 17684 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-13 17:19:15.944  INFO 17684 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-10-13 17:19:15.944  INFO 17684 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-10-13 17:19:15.993  WARN 17684 --- [           main] o.a.tomcat.jdbc.pool.ConnectionPool      : maxIdle is larger than maxActive, setting maxIdle to: 50
+2016-10-13 17:19:16.725  INFO 17684 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2016-10-13 17:19:16.821  WARN 17684 --- [           main] org.hibernate.cfg.AnnotationBinder       : HHH000137: Root entity should not hold an PrimaryKeyJoinColum(s), will be ignored
+2016-10-13 17:19:16.822  WARN 17684 --- [           main] org.hibernate.cfg.AnnotationBinder       : HHH000139: Illegal use of @Table in a subclass of a SINGLE_TABLE hierarchy: com.gft.model.UserSeparatedAsset
+2016-10-13 17:19:16.838  INFO 17684 --- [           main] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+2016-10-13 17:19:16.949  INFO 17684 --- [           main] o.h.tool.hbm2ddl.SchemaValidator         : HHH000229: Running schema validator
+2016-10-13 17:19:16.949  INFO 17684 --- [           main] o.h.tool.hbm2ddl.SchemaValidator         : HHH000102: Fetching database metadata
+2016-10-13 17:19:17.046  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_AUTHORITY
+2016-10-13 17:19:17.046  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [role, name, id]
+2016-10-13 17:19:17.062  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_PRODUCT
+2016-10-13 17:19:17.062  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [env_name, name, id]
+2016-10-13 17:19:17.066  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_PRODUCT_RATE
+2016-10-13 17:19:17.066  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [rate, created, product_id, id]
+2016-10-13 17:19:17.075  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER
+2016-10-13 17:19:17.075  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [amount, password, created, last_login, last_name, id, first_name, email]
+2016-10-13 17:19:17.080  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER_ASSET
+2016-10-13 17:19:17.081  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [volume, is_done, created, price, product_id, dtype, contractor_2_user_id, contractor_1_user_id, user_asset_id, id, transaction_type, separated_date]
+2016-10-13 17:19:17.090  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000261: Table found: TRADESYSTEM.TBL_USER_AUTHORITY
+2016-10-13 17:19:17.090  INFO 17684 --- [           main] o.hibernate.tool.hbm2ddl.TableMetadata   : HHH000037: Columns: [user_id, authority_id]
+2016-10-13 17:19:17.097  WARN 17684 --- [           main] o.h.j.i.EntityManagerFactoryRegistry     : HHH000436: Entity manager factory name (default) is already registered.  If entity manager will be clustered or passivated, specify a unique value for property 'hibernate.ejb.entitymanager_factory_name'
+products: gold,silver
+2016-10-13 17:19:18.350  INFO 17684 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16e195cf: startup date [Thu Oct 13 17:19:11 CEST 2016]; root of context hierarchy
+2016-10-13 17:19:18.559  INFO 17684 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-13 17:19:18.561  INFO 17684 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-13 17:19:18.675  INFO 17684 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-13 17:19:18.675  INFO 17684 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-13 17:19:18.756  INFO 17684 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-13 17:19:18.877  INFO 17684 --- [           main] o.s.b.f.config.PropertiesFactoryBean     : Loading properties file from URL [jar:file:/C:/Users/kamu/.m2/repository/org/springframework/integration/spring-integration-core/4.2.5.RELEASE/spring-integration-core-4.2.5.RELEASE.jar!/META-INF/spring.integration.default.properties]
+2016-10-13 17:19:18.939  INFO 17684 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2016-10-13 17:19:19.194  INFO 17684 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-10-13 17:19:19.195  INFO 17684 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-10-13 17:19:19.196  INFO 17684 --- [           main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:8091.errorChannel' has 1 subscriber(s).
+2016-10-13 17:19:19.196  INFO 17684 --- [           main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2016-10-13 17:19:19.199  INFO 17684 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-10-13 17:19:19.318  INFO 17684 --- [ask-scheduler-2] com.gft.services.MatcherScheduledTasks   : The time is now 17:19:19
+2016-10-13 17:19:19.484  INFO 17684 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8091 (http)
+2016-10-13 17:19:19.493  INFO 17684 --- [           main] g.j.RepositoryUserServiceIntegrationTest : Started RepositoryUserServiceIntegrationTest in 8.605 seconds (JVM running for 24.903)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.676 sec - in com.gft.jms.RepositoryUserServiceIntegrationTest
+Running com.gft.jms.UserIntegrationTest
+2016-10-13 17:19:19.501  INFO 17684 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.gft.jms.UserIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2016-10-13 17:19:19.506  INFO 17684 --- [           main] WebAppIntegrationTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2016-10-13 17:19:19.507  INFO 17684 --- [           main] WebAppIntegrationTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@38197e82, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5516ee5, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6765b6a2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@75c589f2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6db04a6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@8f374de]
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 sec - in com.gft.jms.UserIntegrationTest
+2016-10-13 17:19:19.556  INFO 17684 --- [       Thread-4] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@408d971b: startup date [Thu Oct 13 17:18:56 CEST 2016]; root of context hierarchy
+2016-10-13 17:19:19.558  INFO 17684 --- [       Thread-4] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2016-10-13 17:19:19.560  INFO 17684 --- [       Thread-6] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16e195cf: startup date [Thu Oct 13 17:19:11 CEST 2016]; root of context hierarchy
+2016-10-13 17:19:19.566  INFO 17684 --- [       Thread-6] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2016-10-13 17:19:19.616  INFO 17684 --- [       Thread-4] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2016-10-13 17:19:19.616  INFO 17684 --- [       Thread-4] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-10-13 17:19:19.617  INFO 17684 --- [       Thread-4] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:-1.errorChannel' has 0 subscriber(s).
+2016-10-13 17:19:19.617  INFO 17684 --- [       Thread-4] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2016-10-13 17:19:19.619  INFO 17684 --- [       Thread-4] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2016-10-13 17:19:19.745  INFO 17684 --- [       Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-10-13 17:19:20.308  INFO 17684 --- [       Thread-6] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2016-10-13 17:19:20.308  INFO 17684 --- [       Thread-6] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2016-10-13 17:19:20.308  INFO 17684 --- [       Thread-6] o.s.i.channel.PublishSubscribeChannel    : Channel 'application:8091.errorChannel' has 0 subscriber(s).
+2016-10-13 17:19:20.308  INFO 17684 --- [       Thread-6] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2016-10-13 17:19:20.310  INFO 17684 --- [       Thread-6] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2016-10-13 17:19:20.347  INFO 17684 --- [       Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+
+Results :
+
+Failed tests: 
+  ProductIntegrationTest.findByEnvNameInDaoTest:63->lambda$findByEnvNameInDaoTest$1:64 expected null, but was:<1200>
+
+Tests in error: 
+  ProductIntegrationTest.findAllProductServiceTest:77 » IndexOutOfBounds Index: ...
+  UserAssetsIntegrationTest.updateBatch:53 » IndexOutOfBounds Index: 0, Size: 0
+  UsersIntegrationTest.loginTest:67 WrongTypeOfReturnValue 
+Integer cannot be re...
+
+
+Tests run: 10, Failures: 1, Errors: 3, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 51.840 s
+[INFO] Finished at: 2016-10-13T17:19:20+02:00
+[INFO] Final Memory: 31M/548M
+[INFO] ------------------------------------------------------------------------

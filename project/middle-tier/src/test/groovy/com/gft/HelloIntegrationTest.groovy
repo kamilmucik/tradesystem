@@ -1,8 +1,8 @@
 package com.gft
 
-import com.gft.hello.User
 import com.gft.hello.UserController
 import com.gft.hello.UserRepository
+import com.gft.hello.User
 import org.junit.Ignore
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.SpringApplicationConfiguration

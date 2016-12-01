@@ -1,49 +1,72 @@
 package com.gft.services.persist;
 
-import com.gft.dao.UsersDao;
-import com.gft.dto.User;
+import com.gft.dao.UserDao;
+import com.gft.dto.*;
+import com.gft.dto.model.UserDetails;
+import com.gft.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by kamu on 8/16/2016.
  */
 @Service("userService")
-@Transactional()
 public class UserServiceImpl implements UserService {
 
     static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    private UsersDao dao;
+    private UserDao dao;
 
+    @Transactional(readOnly = true)
     @Override
-    public User update(User user){
-        LOG.debug("update: {}", user);
-        com.gft.model.User modelUser = new com.gft.model.User();
-
-        dao.save(modelUser);
-        return user;
-    }
-
-    @Override
-    public List<User> findAll() {
-        List<User> users = new ArrayList<User>();
-        for (com.gft.model.User u : dao.findAll()) {
-            users.add(new User(u.getFirstName(),u.getPassword()));
+    public LoginUserResponse login(LoginUserRequest request) {
+        User user = dao.find(request.getLogin(),request.getPassword());
+        int code;
+        String msg = "";
+        if (user != null){
+            user.setLastLogin(new Date());
+            dao.save(user);
+            code = 211;
+        } else {
+            code = 2;
+            msg = "User was not found.";
         }
-        return users;
+        return new LoginUserResponse(request.getLogin(), request.getPassword(),code, msg);
     }
 
+    @Transactional(readOnly = true)
     @Override
-    public User findOne(Long id) {
-        com.gft.model.User u = dao.findOne(id);
-        return new User(u.getFirstName(),u.getPassword());
+    public GetUserDetailsResponse getUserDetails(GetUserDetailsRequest request) {
+        User user = dao.find(request.getLogin());
+        GetUserDetailsResponse response = new GetUserDetailsResponse(user.getFirstName(), user.getLastName(), 211);
+        response.setFreeResources(user.getAmount());
+        BigDecimal wallet = new BigDecimal(0);
+        //user.getAssets().stream().forEach(n-> {wallet.add(n.getBuyValue());});
+        response.setWalletValue(wallet);
+
+        return response;
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public UserDetails getUserDetails(String email) {
+        User user = dao.find(email);
+        BigDecimal wallet = new BigDecimal(0);
+
+        UserDetails ud =new UserDetails(user.getFirstName(), user.getLastName(), user.getAmount(),wallet, wallet);
+        return ud;
+    }
+
+
+
+    public void setDao(UserDao dao) {
+        this.dao = dao;
     }
 }

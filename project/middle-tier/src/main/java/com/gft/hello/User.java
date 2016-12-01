@@ -6,13 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * Created by Kamil Bemowski on 2016-06-28.
  */
-@Entity
-public class User implements Serializable {
+@Entity(name="com.gft.hello.user")
+public class User {
     @Id
     @GeneratedValue
     private Long id;

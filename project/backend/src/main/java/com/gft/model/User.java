@@ -1,6 +1,8 @@
 package com.gft.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,11 +13,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="TBL_USER")
-public class User {
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", unique = true)
+    @Column( name = "ID" )
     private Long id;
 
     @Column(name = "FIRST_NAME", nullable = false)
@@ -27,6 +29,9 @@ public class User {
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
+    @Column(name = "LAST_LOGIN", nullable = false)
+    private Date lastLogin;
+
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
@@ -36,13 +41,19 @@ public class User {
     @Column(name = "AMOUNT", nullable = false)
     private BigDecimal amount;
 
-    @ManyToMany( fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE }  )
+    @ManyToMany( fetch = FetchType.LAZY, cascade = CascadeType.ALL  )
     @JoinTable(
             name = "TBL_USER_AUTHORITY",
             joinColumns = {@JoinColumn(name = "USER_ID")},
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID")}
     )
     private List<Authority> authorities;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contractor1")
+    private List<UserAsset> contractor1Assets = new ArrayList<>(0);
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "contractor2")
+    private List<UserAsset> contractor2Assets = new ArrayList<>(0);
 
     public Long getId() {
         return id;
@@ -100,15 +111,27 @@ public class User {
         this.amount = amount;
     }
 
+    public Date getLastLogin() {return lastLogin;}
+
+    public void setLastLogin(Date lastLogin) {this.lastLogin = lastLogin;}
+
     public List<Authority> getAuthorities() {return authorities;}
 
     public void setAuthorities(List<Authority> authorities) {this.authorities = authorities;}
+
+    public List<UserAsset> getContractor1Assets() {return contractor1Assets;}
+
+    public void setContractor1Assets(List<UserAsset> contractor1Assets) {this.contractor1Assets = contractor1Assets;}
+
+    public List<UserAsset> getContractor2Assets() {return contractor2Assets;}
+
+    public void setContractor2Assets(List<UserAsset> contractor2Assets) {this.contractor2Assets = contractor2Assets;}
 
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id.intValue();
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((id.equals(null)) ? 0 : id.hashCode());
         return result;
     }
 
@@ -124,7 +147,7 @@ public class User {
         if (id != other.id)
             return false;
         if (id == null) {
-            if (other.id != null)
+            if (!other.id.equals(null))
                 return false;
         } else if (!id.equals(other.id))
             return false;

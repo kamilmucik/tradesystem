@@ -24,7 +24,6 @@
         </developer>
     </developers>
 
-
     <scm>
         <url>https://git.gft.com/junior5/cash-trade</url>
         <connection>scm:git:https://git.gft.com/junior5/cash-trade</connection>
@@ -42,6 +41,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hibernate.version>4.3.6.Final</hibernate.version>
+
+        <unit-tests.skip>true</unit-tests.skip>
+        <integration-tests.skip>true</integration-tests.skip>
     </properties>
 
     <modules>
@@ -95,11 +97,40 @@
                                 <echo file="${basedir}/target/classes/filter.properties" append="true" message="${line.separator}" />
                                 <echo file="${basedir}/target/classes/filter.properties" append="true" message="scm.branch=${scmBranch}" />
                                 <echo file="${basedir}/target/classes/filter.properties" append="true" message="${line.separator}" />
-                                <echo file="${basedir}/target/classes/filter.properties" append="true" message="env.instance.number=${instance.number}" />
+                                <echo file="${basedir}/target/classes/filter.properties" append="true" message="env.instance.number=${instance.number:1}" />
                                 <echo file="${basedir}/target/classes/filter.properties" append="true" message="${line.separator}" />
                                 <echo file="${basedir}/target/classes/filter.properties" append="true" message="env.stage=${profile.stage}" />
-
+                                <echo file="${basedir}/target/classes/filter.properties" append="true" message="${line.separator}" />
+                                <echo file="${basedir}/target/classes/filter.properties" append="true" message="env.broker.url=${broker.url:}" />
                             </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.goldin</groupId>
+                <artifactId>copy-maven-plugin</artifactId>
+                <version>0.2.5</version>
+                <executions>
+                    <execution>
+                        <id>deploy-to-local-directory</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <skipIdentical>false</skipIdentical>
+                            <failIfNotFound>false</failIfNotFound>
+                            <resources>
+                                <resource>
+                                    <description>Copy artifact to "service" directory</description>
+                                    <targetPath>C:/gft/service/</targetPath>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>*.zip</include>
+                                    </includes>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>
@@ -135,7 +166,13 @@
 				<version>1.18</version>
 				<classifier>bin</classifier>
 				<type>exe</type>
+                <scope>provided</scope>
 			</dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>11.2.0.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -157,13 +194,14 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.9</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.9.0</version>
+            <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -171,6 +209,13 @@
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
 
